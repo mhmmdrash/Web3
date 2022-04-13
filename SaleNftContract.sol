@@ -80,15 +80,16 @@ contract BoredApeYachtClub is ERC721, ERC721Enumerable, ERC721Burnable, Ownable,
 
     function purchase(uint tokenId) external payable {
         require(msg.value >= bids[msg.sender]);
-        safeTransferFrom(ownerOf(tokenId), msg.sender, tokenId);
         uint val = msg.value;
         uint sval = val * 90 / 100;
         uint oval = val * 10 / 100;
         payable(ownerOf(tokenId)).transfer(sval);
         payable(creator[tokenId]).transfer(oval);
+        safeTransferFrom(ownerOf(tokenId), msg.sender, tokenId);
         delete prices[tokenId];
         delete bids[msg.sender];
         delete bidders[tokenId];
+        onSaleNfts.pop();
     }
 
     // The following functions are overrides required by Solidity.
