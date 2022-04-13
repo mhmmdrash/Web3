@@ -11,6 +11,8 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 contract BoredApeYachtClub is ERC721, ERC721Enumerable, ERC721Burnable, Ownable, IERC721Receiver {
     using Counters for Counters.Counter;
 
+    // variables
+
     Counters.Counter private _tokenIdCounter;
     uint[] public onSaleNfts;  //array for nfts on sale
     
@@ -38,6 +40,8 @@ contract BoredApeYachtClub is ERC721, ERC721Enumerable, ERC721Burnable, Ownable,
         require(msg.sender != ownerOf(tokenId));
         _;
     }
+
+    // functions
 
     constructor() ERC721("Bored Ape", "BAYC") {
         _tokenIdCounter._value = 1;
