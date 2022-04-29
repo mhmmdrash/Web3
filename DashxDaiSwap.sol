@@ -46,7 +46,7 @@ contract DashxDaiSwap {
             1,
             1,
             msg.sender,
-            block.timestamp
+            block.timestamp + 2000
         );
 
         emit log("Amount A", amountA);
@@ -64,7 +64,7 @@ contract DashxDaiSwap {
             1,
             1,
             msg.sender,
-            block.timestamp
+            block.timestamp + 2000
         );
 
         emit log("Amount A", amountA);
